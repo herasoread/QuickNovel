@@ -89,6 +89,11 @@ class MainAdapter2(
             }
 
             imageText.text = item.name
+            val chapterCountStr = item.totalChapterCount
+            val text = LibraryHelper.getChapterCountFromString(chapterCountStr)
+            chapterCountOverlay.isVisible = text != null
+            chapterCountOverlay.text = text ?: ""
+
         }
     }
 
