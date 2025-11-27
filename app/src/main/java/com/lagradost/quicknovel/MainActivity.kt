@@ -42,6 +42,7 @@ import com.lagradost.quicknovel.CommonActivity.showToast
 import com.lagradost.quicknovel.CommonActivity.updateLocale
 import com.lagradost.quicknovel.DataStore.getKey
 import com.lagradost.quicknovel.DataStore.getKeys
+import com.lagradost.quicknovel.LibraryHelper.setLibraryBooks
 import com.lagradost.quicknovel.NotificationHelper.requestNotifications
 import com.lagradost.quicknovel.databinding.ActivityMainBinding
 import com.lagradost.quicknovel.databinding.BottomPreviewBinding
