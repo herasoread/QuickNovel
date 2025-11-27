@@ -242,7 +242,7 @@ interface LoadResponse {
     val image: UiImage? get() = img(url = posterUrl, headers = posterHeaders)
     val apiName: String
     var related: List<SearchResponse>?
-
+    var totalChapterCount: String?
     fun downloadImage(): UiImage? {
         val act = activity
         val bitmap = BookDownloader2Helper.getCachedBitmap(act, apiName, author, name)
@@ -270,7 +270,8 @@ data class StreamResponse(
     override var status: ReleaseStatus? = null,
     override var posterHeaders: Map<String, String>? = null,
     var nextChapter: ChapterData? = null,
-    override var related: List<SearchResponse>? = null
+    override var related: List<SearchResponse>? = null,
+    override var totalChapterCount:String? = null
 ) : LoadResponse
 
 suspend fun MainAPI.newStreamResponse(
@@ -285,6 +286,7 @@ suspend fun MainAPI.newStreamResponse(
         url = if (fix) fixUrl(url) else url,
         apiName = this.name,
         data = data
+        totalChapterCount = data.count().toString()
     )
     builder.initializer()
 
@@ -345,7 +347,8 @@ data class EpubResponse(
     var downloadLinks: List<DownloadLink>,
     var downloadExtractLinks: List<DownloadExtractLink>,
     override val apiName: String,
-    override var related: List<SearchResponse>? = null
+    override var related: List<SearchResponse>? = null,
+    override var totalChapterCount:String? = null
 ) : LoadResponse
 
 suspend fun MainAPI.newEpubResponse(
