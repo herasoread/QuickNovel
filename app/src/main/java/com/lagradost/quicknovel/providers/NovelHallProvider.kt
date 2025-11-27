@@ -47,11 +47,16 @@ class NovelHallProvider : MainAPI() {
             val imgSrc = el.selectFirst(".col-xs-3 img")?.attr("src")
 
 val poster = if (imgSrc.isNullOrBlank()) {
+    R.drawable.default_cover
+} else {
+    fixUrlNull(imgSrc)
+}
+          /*  val poster = if (imgSrc.isNullOrBlank()) {
                 // fallback a drawable local (package name hardcoded to avoid using app.packageName)
-                "android.resource://com.lagradost.quicknovel/${R.drawable.default_cover}"
+              return "android.resource://com.lagradost.quicknovel/${R.drawable.default_cover}"
             } else {
                 fixUrlNull(imgSrc)
-            }
+            } */
 
 
             newSearchResponse(
