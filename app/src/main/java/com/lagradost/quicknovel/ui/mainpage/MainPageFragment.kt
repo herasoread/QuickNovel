@@ -18,6 +18,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.lagradost.quicknovel.LibraryHelper
+import com.lagradost.quicknovel.LibraryHelper.getChapterFiltersList
 import com.lagradost.quicknovel.R
 import com.lagradost.quicknovel.databinding.FilterBottomSheetBinding
 import com.lagradost.quicknovel.databinding.FragmentMainpageBinding
