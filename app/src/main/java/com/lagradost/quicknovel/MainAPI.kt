@@ -180,7 +180,9 @@ data class SearchResponse(
     var rating: Int? = null,
     var latestChapter: String? = null,
     val apiName: String,
-    var posterHeaders: Map<String, String>? = null
+    var posterHeaders: Map<String, String>? = null,
+    var totalChapterCount:String? = null,
+    var bookReadStatus:String?=null
 ) {
     val image get() = img(posterUrl, posterHeaders)
 }
@@ -192,7 +194,8 @@ fun MainAPI.newSearchResponse(
     initializer: SearchResponse.() -> Unit = { },
 ): SearchResponse {
     val builder =
-        SearchResponse(name = name, url = if (fix) fixUrl(url) else url, apiName = this.name)
+        //SearchResponse(name = name, url = if (fix) fixUrl(url) else url, apiName = this.name)
+    SearchResponse(name = name, url = if (fix) fixUrl(url) else url, apiName = this.name, totalChapterCount = chapterCount, bookReadStatus = myReadStatus)
     builder.initializer()
 
     return builder
